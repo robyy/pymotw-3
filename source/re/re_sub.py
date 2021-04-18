@@ -9,6 +9,7 @@
 #end_pymotw_header
 import re
 
+# non-greedy, attach ? to repetition
 bold = re.compile(r'\*{2}(.*?)\*{2}')
 
 text = 'Make this **bold**.  This **too**.'
