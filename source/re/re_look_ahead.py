@@ -22,6 +22,8 @@ address = re.compile(
     # LOOKAHEAD
     # Email addresses are wrapped in angle brackets, but only
     # if both are present or neither is.
+    # NOTE: lookahead is expressed as a group, but the match for a look ahead group does not consume any of the input text, so the rest of 
+    # the pattern picks up from the same spot after the look ahead matches.
     (?= (<.*>$)       # remainder wrapped in angle brackets
         |
         ([^<].*[^>]$) # remainder *not* wrapped in angle brackets

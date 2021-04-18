@@ -11,5 +11,7 @@ from re_test_patterns import test_patterns
 
 test_patterns(
     r'\d+ \D+ \s+',
+    # escapes the backslash and plus characters, since both are meta-characters and have special meaning in a regular expression.
+    # notice raw string here
     [(r'\\.\+', 'escape code')],
 )

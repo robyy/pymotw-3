@@ -18,6 +18,7 @@ print('Text:\n  {!r}'.format(text))
 print('Pattern:\n  {}'.format(pattern))
 print('Single Line :')
 for match in single_line.findall(text):
+    # match string is the format of ('This', '') and ('', 'line.'), coz there are 2 groups in r'(^\w+)|(\w+\S*$)'
     print('  {!r}'.format(match))
 print('Multline    :')
 for match in multiline.findall(text):

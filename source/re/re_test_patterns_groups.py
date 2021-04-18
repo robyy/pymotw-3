@@ -29,6 +29,7 @@ def test_patterns(text, patterns):
                                      ' ' * (len(text) - e)),
                 end=' ',
             )
+            # if nested groups, starting from most outer group, then inner groups left to right
             print(match.groups())
             if match.groupdict():
                 print('{}{}'.format(

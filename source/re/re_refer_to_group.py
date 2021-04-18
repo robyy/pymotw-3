@@ -48,6 +48,8 @@ for candidate in candidates:
     match = address.search(candidate)
     if match:
         print('  Match name :', match.group(1), match.group(4))
-        print('  Match email:', match.group(5))
+        print('  Match middle name :', match.group(3), match.group(2), '|') # group 2 is outer one (([\w.]+)\s+), group 3 is inner: ([\w.]+)
+        print('  Match email:', match.group(5)) # group 5 is outer: (?P<email> ...)
+        print('  Match domain:', match.group(6)) # group 6 is inner:
     else:
         print('  No match')

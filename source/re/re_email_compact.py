@@ -23,3 +23,18 @@ for candidate in candidates:
     print('{:<30}  {}'.format(
         candidate, 'Matches' if match else 'No match')
     )
+    # print(f"{candidate:<30}        {'Matches' if match else 'No match'}")
+
+print('--------------')
+candidates2 = [
+    'first.last@example.com',
+    'first.last+category@gmail.com',
+    'valid-address@mail.example.com',
+    'not-valid@example.foo',
+]
+
+for candidate in candidates2:
+    match = address.search(candidate)
+    print('{:<30}  {}'.format(
+        candidate, 'Matches' if match else 'No match')
+    )

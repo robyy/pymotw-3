@@ -19,10 +19,13 @@ text = 'Does this text match the pattern?'
 print('Text: {!r}\n'.format(text))
 
 for regex in regexes:
-    print('Seeking "{}" ->'.format(regex.pattern),
-          end=' ')
+    # print('Seeking "{}" ->'.format(regex.pattern),
+    #       end=' ')
+    #
+    # if regex.search(text):
+    #     print('match!')
+    # else:
+    #     print('no match')
+    print(regex.search(text))
 
-    if regex.search(text):
-        print('match!')
-    else:
-        print('no match')
+    print(f'Seeking "{regex.pattern}" -> {"match!" if regex.search(text) else "no match"}')

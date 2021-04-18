@@ -57,3 +57,44 @@ for candidate in candidates:
         print('  Email:', match.groupdict()['email'])
     else:
         print('  No match')
+    print()
+
+
+print('----------------')
+
+# embedded flags
+pat = r'''(?x)
+    # A name is made up of letters, and may include "."
+    # for title abbreviations and middle initials.
+    ((?P<name>
+       ([\w.,]+\s+)*[\w.,]+)
+       \s*
+       # Email addresses are wrapped in angle
+       # brackets < >, but only if a name is
+       # found, so keep the start bracket in this
+       # group.
+       <
+    )? # the entire name is optional
+
+    # The address itself: username@domain.tld
+    (?P<email>
+      [\w\d.+-]+       # username
+      @
+      ([\w\d.]+\.)+    # domain name prefix
+      (com|org|edu)    # limit the allowed top-level domains
+    )
+
+    >? # optional closing angle bracket
+    '''
+
+regex_emb = re.compile(pat)
+
+for candidate in candidates:
+    print('Candidate:', candidate)
+    match = regex_emb.search(candidate)
+    if match:
+        print('  Name :', match.groupdict()['name'])
+        print('  Email:', match.groupdict()['email'])
+    else:
+        print('  No match')
+    print()

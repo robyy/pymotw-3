@@ -6,7 +6,7 @@
 """Show all matches for a list of patterns.
 """
 
-#end_pymotw_header
+# end_pymotw_header
 import re
 
 
@@ -25,12 +25,17 @@ def test_patterns(text, patterns):
             substr = text[s:e]
             n_backslashes = text[:s].count('\\')
             prefix = '.' * (s + n_backslashes)
+            # prefix = '.' * s
             print("  {}'{}'".format(prefix, substr))
         print()
     return
 
 
 if __name__ == '__main__':
-    test_patterns('abbaaabbbbaaaaa',
+    test_patterns('ab\\\\baaabbbbaaaaa',
                   [('ab', "'a' followed by 'b'"),
                    ])
+
+    print('-------')
+    print('ab\\\\\caaabbbbaaaaa'.count('\\')) # 3, \c is not escaped, they're 2 characters, \ and c
+    print('ab\\\\\baaabbbbaaaaa'.count('\\')) # 2, \\, \\, \b are all escaped
