@@ -14,6 +14,8 @@ b = {'b': 'B', 'c': 'D'}
 
 m = collections.ChainMap(a, b)
 print('Before:', m)
+
+# It is also possible to set values through the ChainMap directly, although only the first mapping in the chain is actually modified.
 m['c'] = 'E'
 print('After :', m)
 print('a:', a)

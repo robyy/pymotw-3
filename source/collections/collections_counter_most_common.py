@@ -15,5 +15,6 @@ with open('/usr/share/dict/words', 'rt') as f:
         c.update(line.rstrip().lower())
 
 print('Most common:')
+# Leaving out the argument to most_common() produces a list of all the items, in order of frequency.
 for letter, count in c.most_common(3):
     print('{}: {:>7}'.format(letter, count))
