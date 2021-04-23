@@ -10,11 +10,11 @@ import enum
 BugStatus = enum.Enum(
     value='BugStatus',
     names=[
-        ('new', 7),
+        ('new', 9),
         ('incomplete', 6),
         ('invalid', 5),
         ('wont_fix', 4),
-        ('in_progress', 3),
+        ('in_progress', 333),
         ('fix_committed', 2),
         ('fix_released', 1),
     ],

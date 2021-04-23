@@ -15,8 +15,8 @@ class BugStatus(enum.IntEnum):
     wont_fix = 4
     in_progress = 3
     fix_committed = 2
-    fix_released = 1
+    fix_released = 111
 
 
 print('Ordered by value:')
-print('\n'.join('  ' + s.name for s in sorted(BugStatus)))
+print('\n'.join('  ' + s.name for s in sorted(BugStatus, reverse=True)))
