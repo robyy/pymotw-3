@@ -13,6 +13,8 @@ import collections
 d1 = collections.deque()
 d1.extend('abcdefg')
 print('extend    :', d1)
+d1.extend('|||')
+print('extend    :', d1)
 d1.append('h')
 print('append    :', d1)
 

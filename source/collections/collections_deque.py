@@ -9,6 +9,7 @@
 #end_pymotw_header
 import collections
 
+# def __init__(self, iterable=(), maxlen=None):
 d = collections.deque('abcdefg')
 print('Deque:', d)
 print('Length:', len(d))
@@ -17,3 +18,10 @@ print('Right end:', d[-1])
 
 d.remove('c')
 print('remove(c):', d)
+
+print('------')
+a = [10, 20, 30, 20]
+a.remove(20)
+print(a)
+# a = [10, 30, 20]
+# removed first instance of argument
