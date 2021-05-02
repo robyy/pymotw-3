@@ -13,4 +13,8 @@ Person = collections.namedtuple('Person', 'name age')
 
 bob = Person(name='Bob', age=30)
 print('Representation:', bob)
+
+# namedtuple provides several useful attributes and methods for working with subclasses and instances. All of these built-in properties
+# have names prefixed with an underscore (_), which by convention in most Python programs indicates a private attribute. For namedtuple,
+# however, the prefix is intended to protect the name from collision with user-provided attribute names.
 print('Fields:', bob._fields)
