@@ -17,6 +17,7 @@ print('heapified :')
 show_tree(data)
 print()
 
+# heapq is a complete binary tree
 for i in range(2):
     smallest = heapq.heappop(data)
     print('pop    {:>3}:'.format(smallest))

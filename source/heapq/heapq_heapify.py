@@ -12,6 +12,8 @@ from heapq_showtree import show_tree
 from heapq_heapdata import data
 
 print('random    :', data)
+
+# If the data is already in memory, it is more efficient to use heapify() to rearrange the items of the list in place.
 heapq.heapify(data)
 print('heapified :')
 show_tree(data)

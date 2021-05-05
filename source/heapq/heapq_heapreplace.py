@@ -19,3 +19,6 @@ for n in [0, 13]:
     smallest = heapq.heapreplace(data, n)
     print('replace {:>2} with {:>2}:'.format(smallest, n))
     show_tree(data)
+
+# width is 10, and alight with right
+print(f'{"-":>10}')
