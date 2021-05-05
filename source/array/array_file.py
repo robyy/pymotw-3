@@ -28,5 +28,8 @@ with open(output.name, 'rb') as input:
     # Read the data into an array
     input.seek(0)
     a2 = array.array('i')
-    a2.fromfile(input, len(a))
+    a2.fromfile(input, len(a))  # a is defined at the beginning: a = array.array('i', range(5))
     print('A2:', a2)
+
+# This example illustrates reading the data “raw,” meaning directly from the binary file, versus reading it into a new array and
+# converting the bytes to the appropriate types.

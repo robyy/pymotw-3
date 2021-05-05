@@ -10,7 +10,7 @@
 import array
 import binascii
 
-s = b'This is the array.'
+s = b'This is the array.'  # sequence
 a = array.array('b', s)
 
 print('As byte string:', s)
