@@ -25,6 +25,7 @@ def message(s):
     print('{}: {}'.format(threading.current_thread().name, s))
 
 
+# Consumer
 def download_enclosures(q):
     """This is the worker thread function.
     It processes items in the queue one after
@@ -34,6 +35,9 @@ def download_enclosures(q):
     """
     while True:
         message('looking for the next enclosure')
+        # Queue.get(block=True, timeout=None)
+        # If optional args block is true and timeout is None (the default), block if necessary until an item is
+        # available.
         url = q.get()
         filename = url.rpartition('/')[-1]
         message('downloading {}'.format(filename))
@@ -51,16 +55,18 @@ for i in range(num_fetch_threads):
     worker = threading.Thread(
         target=download_enclosures,
         args=(enclosure_queue,),
-        name='worker-{}'.format(i),
+        name='worker-{}'.format(i),  # thread name, can access to it thru threading.current_thread().name
     )
     worker.setDaemon(True)
     worker.start()
 
-# Download the feed(s) and put the enclosure URLs into
+# use feedparser lib to parse the rss feed(s) and put the enclosure URLs into
 # the queue.
+# Producer
 for url in feed_urls:
     response = feedparser.parse(url, agent='fetch_podcasts.py')
     for entry in response['entries'][:5]:
+        # 'enclosures' is part of the feedparser api
         for enclosure in entry.get('enclosures', []):
             parsed_url = urlparse(enclosure['url'])
             message('queuing {}'.format(
@@ -70,5 +76,8 @@ for url in feed_urls:
 # Now wait for the queue to be empty, indicating that we have
 # processed all of the downloads.
 message('*** main thread waiting')
+
+# invoked in MainThread, so all the enclosure['url'] already put into Queue/enclosure_queue, and only unblock when all
+# items in the Queue got consumed and removed(indicated by q.task_done())
 enclosure_queue.join()
 message('*** done')
