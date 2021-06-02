@@ -27,4 +27,6 @@ print('via obj:', obj.name)
 print('via ref:', r().name)
 print('via proxy:', p.name)
 del obj
+
+# If the proxy is accessed after the referent object is removed, a ReferenceError exception is raised.
 print('via proxy:', p.name)

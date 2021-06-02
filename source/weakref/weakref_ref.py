@@ -25,4 +25,6 @@ print('r():', r())
 
 print('deleting obj')
 del obj
-print('r():', r())
+print('ref:', r)  # ref: <weakref at 0x1080da4a0; dead>
+print('r():', r())  # r(): None
+# print(obj)

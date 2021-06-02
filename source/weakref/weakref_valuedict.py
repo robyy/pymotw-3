@@ -6,7 +6,7 @@
 """Demonstrate WeakValueDictionary.
 """
 
-#end_pymotw_header
+# end_pymotw_header
 import gc
 from pprint import pprint
 import weakref
@@ -37,24 +37,29 @@ def demo(cache_factory):
         o = ExpensiveObject(name)
         cache[name] = o
         all_refs[name] = o
-        del o  # decref
+        # decref, without this line, then there is still one extra var: o references ExpensiveObject('three')
+        del o
 
     print('  all_refs =', end=' ')
     pprint(all_refs)
     print('\n  Before, cache contains:', list(cache.keys()))
     for name, value in cache.items():
         print('    {} = {}'.format(name, value))
-        del value  # decref
+        # decref, without this line, then there is still one extra var: value references ExpensiveObject('three')
+        del value
 
     # remove all references to the objects except the cache
     print('\n  Cleanup:')
+    # now only cache[key](cache is either dict or WeakValueDictionary) has reference to ExpensiveObject(name)
     del all_refs
+    # this will gc WeakValueDictionary - will cause invoke of __del__() of ExpensiveObject (will not gc dict)
     gc.collect()
 
     print('\n  After, cache contains:', list(cache.keys()))
     for name, value in cache.items():
         print('    {} = {}'.format(name, value))
     print('  demo returning')
+    # all objects created inside functions will be gc: 3 ExpensiveObject, one two three
     return
 
 
@@ -62,3 +67,18 @@ demo(dict)
 print()
 
 demo(weakref.WeakValueDictionary)
+
+print('')
+print('------------')
+
+
+def test_del_in_fn():
+    o = ExpensiveObject('bbbb')
+    # del o; with or without return; all of them will cause o.__del__()
+    # del o
+    # return
+
+    o.__del__()  # there will be 2 '    (Deleting ExpensiveObject(bbbb))' printed
+
+
+test_del_in_fn()

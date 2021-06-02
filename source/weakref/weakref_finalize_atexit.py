@@ -23,4 +23,8 @@ def on_finalize(*args):
 
 obj = ExpensiveObject()
 f = weakref.finalize(obj, on_finalize, 'extra argument')
-f.atexit = bool(int(sys.argv[1]))
+# The finalize instance has a writable property atexit to control whether the callback is invoked as a program
+# is exiting, if it hasn’t already been called.
+# f.atexit = bool(int(sys.argv[1]))
+# f.atexit = False
+f.atexit = True

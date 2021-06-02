@@ -24,7 +24,10 @@ def on_finalize(*args):
 obj = ExpensiveObject()
 obj_id = id(obj)
 
+# Giving the finalize instance a reference to the object it tracks(the third param - obj in below code) causes
+# a reference to be retained, so the object is never garbage collected.
 f = weakref.finalize(obj, on_finalize, obj)
+# f = weakref.finalize(obj, on_finalize, 'bbbbb')
 f.atexit = False
 
 del obj
