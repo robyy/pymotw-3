@@ -15,6 +15,7 @@ class node:
         self.name = name
         self.contents = contents[:]
 
+    # The PrettyPrinter class used by pprint() can also work with custom classes, if they define a __repr__() method.
     def __repr__(self):
         return (
             'node(' + repr(self.name) + ', ' +
