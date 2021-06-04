@@ -33,7 +33,8 @@ class Graph:
         print('  Memo dictionary:')
         if memo:
             for k, v in memo.items():
-                print('    {}: {}'.format(k, v))
+                # print('    {}: {}'.format(k, v))
+                print('    memo items: {}: {}'.format(k, v))
         else:
             print('    (empty)')
         dup = Graph(copy.deepcopy(self.name, memo), [])
@@ -51,3 +52,4 @@ root.add_connection(a)
 root.add_connection(b)
 
 dup = copy.deepcopy(root)
+# print(dup)

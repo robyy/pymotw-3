@@ -28,6 +28,8 @@ class MyClass:
         print('__copy__()')
         return MyClass(self.name)
 
+    # The memo dictionary is used to keep track of the values that have been copied already, so as to avoid infinite
+    # recursion.
     def __deepcopy__(self, memo):
         print('__deepcopy__({})'.format(memo))
         return MyClass(copy.deepcopy(self.name, memo))

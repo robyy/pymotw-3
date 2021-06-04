@@ -30,8 +30,14 @@ my_list = [a]
 dup = copy.deepcopy(my_list)
 
 print('             my_list:', my_list)
-print('                 dup:', dup)
+print('                 dup:', dup)  # element of dup list is a new/different object than a
+
+# False, dup and my_list are 2 different objects even for shallow copy
 print('      dup is my_list:', (dup is my_list))
+
+# True, == compares list content, contents are same based on MyClass.__eq__()
 print('      dup == my_list:', (dup == my_list))
 print('dup[0] is my_list[0]:', (dup[0] is my_list[0]))
+
+# True, based on MyClass.__eq__()
 print('dup[0] == my_list[0]:', (dup[0] == my_list[0]))
