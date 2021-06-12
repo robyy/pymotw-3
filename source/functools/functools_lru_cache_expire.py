@@ -3,10 +3,12 @@
 """Least-recently-used cache
 """
 
-#end_pymotw_header
+# end_pymotw_header
 import functools
 
 
+# The keys for the cache managed by lru_cache() must be hashable, so all of the arguments to the function
+# wrapped with the cache lookup must be hashable.
 @functools.lru_cache(maxsize=2)
 def expensive(a, b):
     print('called expensive({}, {})'.format(a, b))

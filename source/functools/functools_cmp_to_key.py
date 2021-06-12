@@ -6,7 +6,7 @@
 """Fill in missing rich comparison methods.
 """
 
-#end_pymotw_header
+# end_pymotw_header
 import functools
 
 
@@ -33,8 +33,10 @@ def compare_obj(a, b):
 # Make a key function using cmp_to_key()
 get_key = functools.cmp_to_key(compare_obj)
 
+# Normally cmp_to_key() would be used directly, but in this example an extra wrapper function is introduced to
+# print out more information as the key function is being called.
 def get_key_wrapper(o):
-    "Wrapper function for get_key to allow for print statements."
+    """Wrapper function for get_key to allow for print statements."""
     new_key = get_key(o)
     print('key_wrapper({}) -> {!r}'.format(o, new_key))
     return new_key

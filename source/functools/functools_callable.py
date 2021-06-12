@@ -6,7 +6,7 @@
 """
 """
 
-#end_pymotw_header
+# end_pymotw_header
 import functools
 
 
@@ -41,3 +41,8 @@ p = functools.partial(o, e='default for e', f=8)
 functools.update_wrapper(p, o)
 show_details('instance wrapper', p)
 p()
+
+# def test(a, b):
+#     print(a, b)
+#
+# test(a='aaa', b='cccc')

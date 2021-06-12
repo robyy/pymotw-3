@@ -3,10 +3,14 @@
 """Least-recently-used cache
 """
 
-#end_pymotw_header
+# end_pymotw_header
 import functools
 
 
+# Arguments to the function are used to build a hash key, which is then mapped to the result.
+# Subsequent calls with the same arguments will fetch the value from the cache instead of calling the function
+# The decorator also adds methods to the function to examine the state of the cache (cache_info())
+# and empty the cache (cache_clear()).
 @functools.lru_cache()
 def expensive(a, b):
     print('expensive({}, {})'.format(a, b))

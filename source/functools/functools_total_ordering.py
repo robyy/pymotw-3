@@ -18,6 +18,8 @@ class MyObject:
     def __init__(self, val):
         self.val = val
 
+    # If a comparison cannot be made, the method should return NotImplemented so the comparison can be tried
+    # using the reverse comparison operators on the other object, before failing entirely.
     def __eq__(self, other):
         print('  testing __eq__({}, {})'.format(
             self.val, other.val))
@@ -38,5 +40,6 @@ b = MyObject(2)
 print('\nComparisons:')
 for expr in ['a < b', 'a <= b', 'a == b', 'a >= b', 'a > b']:
     print('\n{:<6}:'.format(expr))
+    # eval(input()) is danerous
     result = eval(expr)
     print('  result of {}: {}'.format(expr, result))
