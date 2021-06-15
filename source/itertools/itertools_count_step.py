@@ -2,7 +2,7 @@
 """Using count()
 """
 
-#end_pymotw_header
+# end_pymotw_header
 import fractions
 from itertools import *
 

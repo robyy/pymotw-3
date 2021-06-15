@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
-#end_pymotw_header
+# end_pymotw_header
 from itertools import *
 
 
@@ -17,4 +17,12 @@ def show(iterable):
 
 
 print('Unique pairs:\n')
+# In this output, each input item is paired with itself as well as all of the other members of the input sequence.
 show(combinations_with_replacement('abcd', r=2))
+
+
+print('---- input has duplicate -----')
+show(combinations_with_replacement('abcc', r=2))
+# aa ab ac ac
+# bb bc bc
+# cc cc cc  the last cc is the last c in the input with itself

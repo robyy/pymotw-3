@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # encoding: utf-8
 
-#end_pymotw_header
+# end_pymotw_header
 from itertools import *
 
 
@@ -17,4 +17,13 @@ def show(iterable):
 
 
 print('Unique pairs:\n')
+# To limit the values to unique combinations rather than permutations, use combinations().
+# As long as the members of the input are unique, the output will not include any repeated values.
 show(combinations('abcd', r=2))
+
+print('---- input has duplicate ---')
+# Unlike with permutations, the r argument to combinations() is required.
+show(combinations('abcc', r=2))
+# ab ac ac
+# bc bc
+# cc
