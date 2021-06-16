@@ -23,7 +23,8 @@ print('  contains(a, 1)  :', contains(a, 1))
 print('  contains(b, "d"):', contains(b, "d"))
 print('  countOf(a, 1)   :', countOf(a, 1))
 print('  countOf(b, "d") :', countOf(b, "d"))
-print('  indexOf(a, 5)   :', indexOf(a, 1))
+print('  indexOf(a, 1)   :', indexOf(a, 1))
+# print('  indexOf(a, 5)   :', indexOf(a, 5))  # ValueError: sequence.index(x): x not in sequence
 
 print('\nAccess Items:')
 print('  getitem(b, 1)                  :',

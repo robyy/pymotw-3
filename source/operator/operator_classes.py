@@ -6,15 +6,16 @@
 """
 """
 
-#end_pymotw_header
+# end_pymotw_header
 from operator import *
 
-
+# The functions in the operator module work via the standard Python interfaces when performing their operations.
+# Thus, they work with user-defined classes as well as the built-in types.
 class MyObj:
     """Example for operator overloading"""
 
     def __init__(self, val):
-        super(MyObj, self).__init__()
+        # super(MyObj, self).__init__()
         self.val = val
 
     def __str__(self):

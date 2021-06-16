@@ -39,7 +39,7 @@ print()
 print('Grouped, unsorted:')
 
 # itertools.groupby(iterable, key=None)
-# key is an optional function, the result/return of invocation of key(data_item) will be used for sorting
+# key is an optional function, the result/return of invocation of key(data_item) will be used for grouping/sorting
 # the key function will be implicitly invoked on every item of the iterable
 # After f = attrgetter('name'), the call f(b) returns b.name.
 #
