@@ -40,3 +40,9 @@ print(lt(a, b))
 
 print('\nArithmetic:')
 print(add(a, b))
+
+# is and == comparison
+print('-------is and == comparison---------')
+p = 999
+w = 999
+print(p is w)
